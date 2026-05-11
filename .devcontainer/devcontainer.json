@@ -1,0 +1,16 @@
+{
+  "name": "Raylib C++ (Ubuntu)",
+  "image": "mcr.microsoft.com/devcontainers/cpp:1-ubuntu-24.04",
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y build-essential cmake git libasound2-dev libx11-dev libxrandr-dev libxi-dev libgl1-mesa-dev libglu1-mesa-dev libxcursor-dev libxinerama-dev libwayland-dev libxkbcommon-dev && git clone --depth 1 https://github.com/raysan5/raylib.git && cd raylib && mkdir -p build && cd build && cmake -DBUILD_EXAMPLES=OFF .. && make -j$(nproc) && sudo make install && sudo ldconfig && cd ../.. && rm -rf raylib",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-vscode.cmake-tools",
+        "twxs.cmake"
+      ]
+    }
+  },
+  "forwardPorts": [8080],
+  "remoteUser": "vscode"
+}
